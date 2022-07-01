@@ -21,7 +21,7 @@
 		name: 'App',
 		mixins: [ApiInterceptors],
 		components: { LayoutHeader, ErrorDialog, InfoDialog },
-		mounted() {
+		created() {
 			this.setRequestInterceptor();
 			this.setResponseInterceptor();
 		},

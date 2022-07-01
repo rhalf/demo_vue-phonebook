@@ -132,9 +132,14 @@
 			};
 		},
 		async created() {
-			this.loadingContacts = true;
-			await this.fetchContacts();
-			this.loadingContacts = false;
+			try {
+				this.loadingContacts = true;
+				await this.fetchContacts();
+			} catch {
+				console.log('fetchContacts', 'Failed');
+			} finally {
+				this.loadingContacts = false;
+			}
 		},
 		methods: {
 			...mapActions('contact', ['fetchContacts']),
